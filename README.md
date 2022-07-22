@@ -9,6 +9,13 @@ Client |  Resource Owner를 대리하여 리소스 요청을 하는 애플리�
 Access Token |  Authorization Server가 Resource Owner를 식별하여 발급받은 키
 Refresh Token |  Access Token를 재발급 받을 때 사용하는 키
 
+# Spring Security OAuth2
+### OAuth2AuthorizationRequest
+인가 응답을 연계하고 검증할 때 사용한다.  
+### AuthorizationRequestRepository
+AuthorizationRequestRepository는 인가 요청을 시작한 시점부터 인가 요청을 받는 시점까지 (콜백) OAuth2AuthorizationRequest를 유지해준다.
+기본 구현체는 세션에 저장하는 HttpSessionOAuth2AuthorizationRequestRepository
+
 # 예제 설명
 ## simple
 index 페이지 접속시 바로 깃허브 로그인 페이지로 리다이렉트되는 간단한 Oauth2 로그인 예제 프로젝트
@@ -17,4 +24,7 @@ index 페이지 접속시 바로 깃허브 로그인 페이지로 리다이렉�
 welcome 페이지에서 구글, 깃허브 둘 중 하나를 선택해서 로그인할 수 있는 예제 프로젝트
 
 # Reference
-https://spring.io/guides/tutorials/spring-boot-oauth2/#github-register-application
+https://spring.io/guides/tutorials/spring-boot-oauth2/#github-register-application  
+https://velog.io/@devsh/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8A%B8-OAuth2-Filter-OAuth2AuthorizationRequestRedirectFilter-%EB%82%B4%EB%B6%80-%EB%A1%9C%EC%A7%81  
+https://deeplify.dev/back-end/spring/oauth2-social-login#%EC%8B%9C%ED%80%80%EC%8A%A4-%EC%84%A4%EB%AA%85  
+https://jyami.tistory.com/121
