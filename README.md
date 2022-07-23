@@ -23,6 +23,10 @@ index 페이지 접속시 바로 깃허브 로그인 페이지로 리다이렉�
 ## two-provider
 welcome 페이지에서 구글, 깃허브 둘 중 하나를 선택해서 로그인할 수 있는 예제 프로젝트
 
+## custom-endpoint
+authorizationEndpoint, redirectionEndpoint 엔드포인트의 baseurl을 재정의하고  
+RequestRepository와 Oauth2UserService를 커스텀하여 Oauth2 인증 진행  
+
 # Reference
 https://spring.io/guides/tutorials/spring-boot-oauth2/#github-register-application  
 https://velog.io/@devsh/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8A%B8-OAuth2-Filter-OAuth2AuthorizationRequestRedirectFilter-%EB%82%B4%EB%B6%80-%EB%A1%9C%EC%A7%81  
