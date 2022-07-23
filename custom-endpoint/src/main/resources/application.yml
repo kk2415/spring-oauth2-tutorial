@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    username: root
+    password: Dudrhkd10ck!
+    url: jdbc:mysql://localhost:3306/oauth_test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: f70f6be4eff607e1dbbb
+            clientSecret: 3feffc5fea0872e3fb6ca9d57900c173a1e3aaac
+            redirectUri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+            scope:
+              - user:email
+              - read:user
+          google:
+            client-id: 916908146663-6dd56rd11jvsaptjskt1ugrs4ig28v86.apps.googleusercontent.com
+            client-secret: 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
+            redirectUri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+            scope:
+              - email
+              - profile
