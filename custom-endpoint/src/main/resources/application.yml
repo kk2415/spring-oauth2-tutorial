@@ -20,6 +20,8 @@ spring:
           github:
             clientId: f70f6be4eff607e1dbbb
             clientSecret: 3feffc5fea0872e3fb6ca9d57900c173a1e3aaac
+            #authentication grant를 받기 위해 리아디렉트되는 주소
+            # 깃허브 Callback url에 등록한 주소와 똑같아야한다
             redirectUri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
             scope:
               - user:email
