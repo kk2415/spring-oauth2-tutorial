@@ -15,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 @EnableWebSecurity
 @Configuration
@@ -23,9 +22,6 @@ public class SecurityConfig {
 
     @Autowired TokenProvider tokenProvider;
     @Autowired private CustomOAuth2UserService customOAuth2UserService;
-//    @Autowired private CookieAuthorizationRequestRepository cookieAuthorizationRequestRepository;
-//    @Autowired private OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
-//    @Autowired private OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -50,8 +46,6 @@ public class SecurityConfig {
                         .baseUri("/*/oauth2/code/*").and()
                     .userInfoEndpoint()
                         .userService(customOAuth2UserService).and()
-//                    .defaultSuccessUrl("/oauth/redirect")
-//                .successHandler(new SimpleUrlAuthenticationSuccessHandler("/oauth/redirect"))
                     .successHandler(oAuth2AuthenticationSuccessHandler())
                     .failureHandler(oAuth2AuthenticationFailureHandler())
                 .and().build();
@@ -66,7 +60,6 @@ public class SecurityConfig {
     public OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler() {
         return new OAuth2AuthenticationFailureHandler(cookieAuthorizationRequestRepository());
     }
-
 
     @Bean
     public CookieAuthorizationRequestRepository cookieAuthorizationRequestRepository() {
